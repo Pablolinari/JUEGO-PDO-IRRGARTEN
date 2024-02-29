@@ -1,6 +1,6 @@
 package juego;
 
-public class weapon {
+public class Weapon {
     private float power;
     private int uses;
 
@@ -19,5 +19,8 @@ public class weapon {
     } 
     public String toString(){
         return String.format("W[%f,%d]", power,uses);
+    }
+    public boolean discard(){
+        return discardElement(uses);
     }
 }

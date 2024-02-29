@@ -1,7 +1,7 @@
 package juego;
  import java.util.Random;
 
-public class dice {
+public class Dice {
     private int MAX_USES = 5;
     private double MAX_INTELLIGENCE = 10.0;
     private double MAX_STRENGTH = 10.0;
@@ -35,11 +35,28 @@ public class dice {
         return random.nextInt(WEAPONS_REWARD) +1 ;
     }
     public int healthReward(){
-        
+        return random.nextInt(HEALTH_REWARD);
     }
 
+    public float weaponPower(){
+        return random.nextFloat(MAX_ATTACK);
+    }
 
+    public float shieldPower(){
+        return random.nextFloat(MAX_SHIELD);
+    }
+    public int usesLeft(){
+        return random.nextInt(MAX_USES);
+    }
+    public float intensity(float competence){
+        return random.nextFloat(competence);
+    }
+    public boolean discardElement(int usesLeft){
+        int prob = usesLeft / MAX_USES;
 
+        
+
+    }
 }
 
 

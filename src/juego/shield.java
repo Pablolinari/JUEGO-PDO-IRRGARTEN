@@ -1,6 +1,6 @@
 package juego;
 
-public class shield {
+public class Shield {
     private float protection; 
     private int uses;
 
@@ -19,6 +19,10 @@ public class shield {
     }
     public String toString(){
         return String.format("S[%f,%d]", protection, uses);
+    }
+
+    public boolean discard(){
+        return discardElement(uses);
     }
     
 }
