@@ -12,7 +12,32 @@ public class dice {
     private double MAX_ATTACK = 3;
     private double MAX_SHIELD = 2;
     Random random  = new Random();
-    private int generator = random.nextInt(HEALTH_REWARD)
+    
+    public int randomPos(int max){
+        return random.nextInt(max);
+    }
+
+    public int whoStarts(int nplayers){
+        return random.nextInt(nplaers);
+    }
+    public float randomIntelligence(){
+        return random.nextFloat(MAX_INTELLIGENCE);
+    }
+    public float randomStreangth(){
+        return random.nextFloat(MAX_STRENGTH);
+    }
+
+    public boolean resurrectPlayer(){
+        return random.nextBoolean();
+    }
+
+    public int weaponsReward(){
+        return random.nextInt(WEAPONS_REWARD) +1 ;
+    }
+    public int healthReward(){
+        
+    }
+
 
 
 }
