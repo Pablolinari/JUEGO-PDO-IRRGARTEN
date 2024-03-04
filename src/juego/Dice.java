@@ -53,8 +53,8 @@ public class Dice {
     }
     public boolean discardElement(int usesLeft){
         int prob = usesLeft / MAX_USES;
-
-        
+        boolean devuelve = true;
+        return devuelve;
 
     }
 }
