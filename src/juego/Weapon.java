@@ -21,6 +21,7 @@ public class Weapon {
         return String.format("W[%f,%d]", power,uses);
     }
     public boolean discard(){
-        return discardElement(uses);
+        Dice aux = new Dice();
+        return aux.discardElement(uses);
     }
 }

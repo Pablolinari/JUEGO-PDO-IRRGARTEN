@@ -4,7 +4,7 @@ public class Shield {
     private float protection; 
     private int uses;
 
-    public shield(float p , int u ){
+    public Shield(float p , int u ){
         protection = p;
         uses = u;
     }
@@ -22,7 +22,8 @@ public class Shield {
     }
 
     public boolean discard(){
-        return discardElement(uses);
+        Dice aux = new Dice();
+        return aux.discardElement(uses);
     }
     
 }

@@ -3,14 +3,14 @@ package juego;
 
 public class Dice {
     private int MAX_USES = 5;
-    private double MAX_INTELLIGENCE = 10.0;
-    private double MAX_STRENGTH = 10.0;
-    private double RESURRECT_PROB = 0.3;
+    private float MAX_INTELLIGENCE = 10.0f;
+    private float MAX_STRENGTH = 10.0f;
+    private float RESURRECT_PROB = 0.3f;
     private int WEAPONS_REWARD = 2;
     private int SHIELDS_REWARD = 3;
     private int HEALTH_REWARD = 5;
-    private double MAX_ATTACK = 3;
-    private double MAX_SHIELD = 2;
+    private int MAX_ATTACK = 3;
+    private int MAX_SHIELD = 2;
     Random random  = new Random();
     
     public int randomPos(int max){
@@ -18,13 +18,14 @@ public class Dice {
     }
 
     public int whoStarts(int nplayers){
-        return random.nextInt(nplaers);
+        return random.nextInt(nplayers);
     }
-    public double randomIntelligence(){
-        return random.nextFloat(MAX_INTELLIGENCE);
+    public float randomIntelligence(){
+        return random.nextInt((int)MAX_INTELLIGENCE) + random.nextFloat();
+
     }
-    public double randomStreangth(){
-        return random.nextFloat(MAX_STRENGTH);
+    public float randomStreangth(){
+        return random.nextInt((int)MAX_STRENGTH) + random.nextFloat();
     }
 
     public boolean resurrectPlayer(){
@@ -32,29 +33,32 @@ public class Dice {
     }
 
     public int weaponsReward(){
-        return random.nextInt(WEAPONS_REWARD) +1 ;
+        return random.nextInt(WEAPONS_REWARD+1);
+    }
+    public int shieldsReward(){
+        return random.nextInt(SHIELDS_REWARD);
     }
     public int healthReward(){
         return random.nextInt(HEALTH_REWARD);
     }
 
-    public double weaponPower(){
-        return random.nextFloat(MAX_ATTACK);
+    public float weaponPower(){
+        return random.nextInt(MAX_ATTACK) + random.nextFloat();
     }
 
-    public double shieldPower(){
-        return random.nextFloat(MAX_SHIELD);
+    public float shieldPower(){
+        return random.nextInt(MAX_SHIELD) + random.nextFloat();
     }
     public int usesLeft(){
         return random.nextInt(MAX_USES);
     }
-    public double intensity(float competence){
-        return random.nextFloat(competence);
+    public float intensity(float competence){
+        return competence * random.nextFloat();
     }
     public boolean discardElement(int usesLeft){
-        int prob = usesLeft / MAX_USES;
-        boolean devuelve = true;
-        return devuelve;
+        float prob = usesLeft/MAX_USES;
+
+        return random.nextFloat() <= prob;
 
     }
 }
