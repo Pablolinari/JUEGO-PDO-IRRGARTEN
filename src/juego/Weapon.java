@@ -4,7 +4,7 @@ public class Weapon {
     private float power;
     private int uses;
 
-    public weapon(float p , int u ){
+    public Weapon(float p , int u ){
         power = p;
         uses = u;
     }
