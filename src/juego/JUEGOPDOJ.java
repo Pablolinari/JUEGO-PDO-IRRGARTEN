@@ -14,6 +14,8 @@ public class JUEGOPDOJ {
      * @param args the command line arguments
      */
     public static void main(String[] args){
+        Weapon wep = new Weapon(2, 4);
+        System.out.printf("prueba wep \n%f \n, %s \n, \n%b%n\n",wep.attack(),wep.toString(),wep.discard());
         
     }
     
