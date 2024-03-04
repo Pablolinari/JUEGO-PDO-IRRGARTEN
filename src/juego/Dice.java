@@ -20,10 +20,10 @@ public class Dice {
     public int whoStarts(int nplayers){
         return random.nextInt(nplaers);
     }
-    public float randomIntelligence(){
+    public double randomIntelligence(){
         return random.nextFloat(MAX_INTELLIGENCE);
     }
-    public float randomStreangth(){
+    public double randomStreangth(){
         return random.nextFloat(MAX_STRENGTH);
     }
 
@@ -38,17 +38,17 @@ public class Dice {
         return random.nextInt(HEALTH_REWARD);
     }
 
-    public float weaponPower(){
+    public double weaponPower(){
         return random.nextFloat(MAX_ATTACK);
     }
 
-    public float shieldPower(){
+    public double shieldPower(){
         return random.nextFloat(MAX_SHIELD);
     }
     public int usesLeft(){
         return random.nextInt(MAX_USES);
     }
-    public float intensity(float competence){
+    public double intensity(float competence){
         return random.nextFloat(competence);
     }
     public boolean discardElement(int usesLeft){
