@@ -22,6 +22,6 @@ public class Weapon {
     }
     public boolean discard(){
         Dice aux = new Dice();
-        return aux.discardElement(uses);
+        return aux.discardElement(this.uses);
     }
 }
