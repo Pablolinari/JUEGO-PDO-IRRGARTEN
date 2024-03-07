@@ -1,4 +1,4 @@
-package juego;
+package Irrigarten;
 
 class GameState{
     private String labyrinthv;

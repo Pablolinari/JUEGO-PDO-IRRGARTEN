@@ -1,27 +1,29 @@
-package juego;
+package Irrigarten;
 
-public class Weapon {
-    private float power;
+public class Shield {
+    private float protection; 
     private int uses;
 
-    public Weapon(float p , int u ){
-        power = p;
+    public Shield(float p , int u ){
+        protection = p;
         uses = u;
     }
-    public float attack(){
+    public float protect(){
         if (uses > 0) {
             uses = uses -1;
-            return power;
+            return protection;
         }
         else{
             return 0;
         }
-    } 
-    public String toString(){
-        return String.format("W[%f,%d]", power,uses);
     }
+    public String toString(){
+        return String.format("S[%f,%d]", protection, uses);
+    }
+
     public boolean discard(){
         Dice aux = new Dice();
         return aux.discardElement(this.uses);
     }
+    
 }

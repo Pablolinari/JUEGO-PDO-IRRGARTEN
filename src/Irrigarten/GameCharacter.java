@@ -1,4 +1,4 @@
-package juego;
+package Irrigarten;
 
 public enum GameCharacter {
     PLAYER,
