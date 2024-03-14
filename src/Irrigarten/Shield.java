@@ -22,8 +22,7 @@ public class Shield {
     }
 
     public boolean discard(){
-        Dice aux = new Dice();
-        return aux.discardElement(this.uses);
+        return Dice.discardElement(this.uses);
     }
     
 }
