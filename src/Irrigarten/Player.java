@@ -37,16 +37,31 @@ public class Player {
         this.consecutiveHits = 0;
     }
 
+    public int getRow(){
+        return this.row;
+    }
+
+    public int getCol(){
+        return this.col;
+    }
+
     public void setPos(int row, int col){
         this.row 0 row;
         this.col = col;
     }
     
     public boolean dead(){
-        if (this.health == 0){
-            
+        if (this.health==0){
+            return true;
+        }
+        else{
+            return false;
         }
     }
 
+    public Directions move(Directions direction, Directions[] validMoves){
+
+    }
+    
 
 }
