@@ -46,7 +46,7 @@ public class Player {
     }
 
     public void setPos(int row, int col){
-        this.row 0 row;
+        this.row = row;
         this.col = col;
     }
     
