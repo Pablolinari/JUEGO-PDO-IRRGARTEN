@@ -14,7 +14,7 @@ public class Game {
     Game(int nplayers){
         this.currentPlayerIndex = Dice.whoStarts(nplayers);
         this.log = "";
-        this.labyrinth = new Labyrinth();
+        this.labyrinth = new Labyrinth(0,0,0,0);
         for(int i =0; i< nplayers;i++){
             this.players.set(i,new Player(Character.forDigit(i, 10),Dice.randomIntelligence(),Dice.randomStreangth()));
         }
