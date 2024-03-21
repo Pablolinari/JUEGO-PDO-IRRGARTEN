@@ -17,7 +17,7 @@ import java.util.Random;
         return generator.nextInt(max);
     }
 
-     public static int whoStarts(int nplayers){
+    public static int whoStarts(int nplayers){
         return generator.nextInt(nplayers);
     }
      public static float randomIntelligence(){
