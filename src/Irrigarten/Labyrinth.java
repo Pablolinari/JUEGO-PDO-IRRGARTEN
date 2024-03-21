@@ -5,7 +5,6 @@
 package Irrigarten;
 import java.util.ArrayList;
 
-import javax.swing.DropMode;
 /**
  *
  * @author manuel
