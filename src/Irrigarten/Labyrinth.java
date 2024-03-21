@@ -4,15 +4,18 @@
  */
 package Irrigarten;
 import java.util.ArrayList;
+
+import javax.swing.DropMode;
 /**
  *
  * @author manuel
  */
 public class Labyrinth {
     private static final char BLOCK_CHAR ='X';
-    private static final char EMPTY_CHAR='-';
-    private static final char MONSTER_CHAR='M';
-    private static final char EXIT_CHAR='C';
+    private static final char EMPTY_CHAR ='-';
+    private static final char MONSTER_CHAR ='M';
+    private static final char COMBAT_CHAR ='C';
+    private static final char EXIT_CHAR ='E';
     private static final int ROW=0;
     private static final int COL=1;
     private int nRows;
@@ -93,6 +96,85 @@ public class Labyrinth {
         else return false;
     }
     
-    public 
+    public boolean emptyPos(int row, int col){
+        if (this.labyrinth.get(row).get(col) == EMPTY_CHAR){
+            return true;
+        }
+        else return false;
+    }
+
+    public boolean monsterPos(int row, int col){
+        if (this.labyrinth.get(row).get(col)==MONSTER_CHAR){
+            return true;
+        }
+        else return false;
+    }
+
+    public boolean exitPos(int row, int col){
+        if (this.labyrinth.get(row).get(col)==EXIT_CHAR){
+            return true;
+        }   
+        else return false;
+    }   
+
+    public boolean combatPos(int row, int col){
+        if(this.labyrinth.get(row).get(col)==COMBAT_CHAR){
+            return true;
+        }
+        else return false;
+    }
+
+    public boolean canStepOn(int row, int col){
+        return(posOK(row, col) && (emptyPos(row, col) || monsterPos(row, col) || exitPos(row, col)));
+    }
+
+    public void updateOldPos(int row, int col){
+        if (posOK(row, col)){
+            if (this.labyrinth.get(row).get(col)==COMBAT_CHAR){
+                this.labyrinth.get(row).set(col, MONSTER_CHAR);
+            }
+            else this.labyrinth.get(row).set(col, EMPTY_CHAR);
+        }
+    }
+
+    public ArrayList<Integer> dir2Pos(int row, int col, Directions direction){
+        ArrayList<Integer> newPos = new ArrayList<>();
+        if (direction == Directions.UP){
+            newPos.set(0,row+1);
+            newPos.set(1,col);
+        }
+        if (direction == Directions.DOWN){
+            newPos.set(0,row-1);
+            newPos.set(1,col);
+        }
+        if (direction == Directions.LEFT){
+            newPos.set(0,row);
+            newPos.set(1, col-1);
+        }
+        if (direction == Directions.RIGHT){
+            newPos.set(0,row);
+            newPos.set(1, col+1);
+        }
+
+        return newPos;
+    }
+
+    public ArrayList<Integer> randomEmptyPos(){
+        ArrayList<Integer> posicion = new ArrayList<>();
+        boolean sigue = true;
+        while (sigue){
+            int row = Dice.randomPos(nRows);
+            int col = Dice.randomPos(nCols);
+
+            if (this.labyrinth.get(row).get(col) == EMPTY_CHAR){
+                sigue = false;
+                posicion.set(0, row);
+                posicion.set(1, col);
+            }
+        }
+
+        return posicion;
+    }
+
 
 }
