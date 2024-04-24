@@ -108,12 +108,7 @@ public class Player {
     }    
 
     public void receivedWeapon(Weapon w){
-        for (Weapon weapon : this.WeaponArray) {
-            boolean discard = weapon.discard();
-            if(discard){
-                WeaponArray.remove(weapon);
-            }
-        }
+        WeaponArray.removeIf(Weapon::discard);
         int size = WeaponArray.size();
         if (size < MAX_WEAPONS){
             WeaponArray.add(w);
@@ -121,12 +116,7 @@ public class Player {
     }
 
     public void receivedShield(Shield s){
-        for (Shield shield : this.ShieldArray) {
-            boolean discard = shield.discard();
-            if(discard){
-                ShieldArray.remove(shield);
-            }
-        }
+        ShieldArray.removeIf(Shield::discard);
         int size = ShieldArray.size();
         if (size < MAX_SHIELDS){
             ShieldArray.add(s);
