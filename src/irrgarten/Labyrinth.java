@@ -175,7 +175,7 @@ public class Labyrinth {
 
     private void updateOldPos(int row, int col){
         if (posOK(row, col)){
-            if (this.labyrinth[row][col]==COMBAT_CHAR){
+            if (this.combatPos(row, col)){
                 this.labyrinth[row][col]= MONSTER_CHAR;
             }
             else this.labyrinth[row][col]= EMPTY_CHAR;
