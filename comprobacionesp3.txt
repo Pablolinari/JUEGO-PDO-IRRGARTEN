@@ -1,0 +1,75 @@
+ 
+Player
+-Constructor(char number,float inteligence,float strencht)
+-resurrect() // resetea al jugador quitandole las armas y dandole la vida inicial
+-getrow()
+-getcol()
+-getNumber()
+-setPos(row,col)
+-dead() true si el jugador esta muerto
+-move(Directions direction, Directions validMoves[]) devuelve una direccion a la que se puede mover el jugador
+-attack() Calcula el ataque del jugador sumando fuerza y el poder de sus armas 
+-defend() recae la tarea en managehit
+-recievereward() selecciona aleatoriamente la cantidad de armas y shields a reegalar y da al jugador 
+                 nuevas armas y escudos creados aleatoriamente , tambien suma vida con el metodo healthreward de Dice
+-to_s()
+-recieve_weapons(Weapon w) descarta armas con una probabilidad del metodo discard y si cabe el nuevo arma en el array 
+                            la aniade . 
+-recieve_shields(Shield s) Lo mismo que el weapoons pero con shields
+-newweapon Crea un arma con los valores aleatorios de dice 
+-newshield lo mismo que new weapon pero con shield
+-sum_weapons suma el valor de attack de las armas 
+-sum_shields suma el valor de defend de los escudos 
+-defensiveenergy suma la inteligencia del jugador mas 
+-managehit(float recieve attack) devuelve true si muere o pierde 
+-resethit resetea el contador de golpes
+-gotWounded decrementa la vida en 1
+-incConsecutivehits incrementa los golpes en 1
+
+Monster:
+-Constructor (String name, float intelligence , float strenght)
+-dead() devuelve true si el monstruo esta muerto
+-attack() devuelve float de Dice.intensity(@strenght)
+-set_pos
+-got_wounded() decrementa la vida en 1
+-defend(float recieved_attack) devuelve true si esta muerto y decrementa su vida en 1 si 
+                                no tiene suficiente energia para defender , la ebnergia es Dice.intensity(@intelligence)
+
+-to_s
+
+Labyrinth:
+-Constructor(nRows,nCols,exitRow,ExitCol)
+-spreadplayer(Array players) esparce los jugadores por el laberinto de forma aleatoria
+-havewinner() devuelve true si alqghuien ha ganado 
+-to_s
+-add_block(Direction orientation,startRow,startCol,lenght) pone un muro 
+-add_monster(row,col Monster m ) pone un monstruo
+putplayer(Direction direction , Player p) usa el dir2pos y putplayer2d para poner al jugador 
+validmoves(row,col) devuelve array de directions con los movimientos validos
+posok(row,col) devuelve true si la posicion es valida
+emptypos(row,col) devuelve true si la posicion esta vacia 
+monsterpos(row,col) devuelve true si hay un monstruo en la posicion 
+exitpos(row col) devuelve true si es la posicion de salida
+combatpos(row,col) devuelve true si es una posicion de combate
+canstepon(row,col) devuelve true si se puede pasr a esa direccion
+updateoldpos(row,col) cambia los char dependiendo de si es posicionde combate o no 
+dir2pos(row,col,direction) devuelve la direccion en terminos de row y col
+-randomemptypos () genera una pos aleatoria vacia
+-putplayer2d() pone a un jugador en la posicion indicada y devuelve un monstruo si lo 
+                hay en la casilla 
+
+
+Game : 
+
+Constructor(nplayer) crea un juego con nplayers jugadores
+finished devuelve true si alguien ha ganado
+next_step(preffered direction) mueve al jugador a la direccion indicada y actualiza los logs
+game_state devuelve un game_state del juego con los datos del estado actual 
+configurte_labyrinth configura el laberinto como tu quieras 
+nextplayer pasa el turno al siguiente jugador
+actual_direction(preffe4red_direction) coge los valid moves y usa el metodo move en current_player
+manage_resurrection Aplica Dice.Resurrectplayer y depende de la probabilidad revive o no 
+manage_reward(winneer GameCharacter) actualizza los logs y si gana el jugador le da regalos con recieve_reward
+combat(monster) Gestiona el combate con el monstruo y devuelve el Gamecharacter que ha ganado
+logs : ponen en @log los mensajes dependiendo del estado del juego
+ 

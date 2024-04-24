@@ -1,1 +1,0 @@
-Clase player comprobada en el main TestP3
