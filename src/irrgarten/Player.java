@@ -107,7 +107,7 @@ public class Player {
 
     }    
 
-    public void receivedWeapon(Weapon w){
+    private void receivedWeapon(Weapon w){
         WeaponArray.removeIf(Weapon::discard);
         int size = WeaponArray.size();
         if (size < MAX_WEAPONS){
