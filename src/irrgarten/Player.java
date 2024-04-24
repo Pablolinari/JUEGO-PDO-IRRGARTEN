@@ -115,7 +115,7 @@ public class Player {
         }
     }
 
-    public void receivedShield(Shield s){
+    private void receivedShield(Shield s){
         ShieldArray.removeIf(Shield::discard);
         int size = ShieldArray.size();
         if (size < MAX_SHIELDS){
@@ -124,19 +124,19 @@ public class Player {
 
     }
 
-    public Weapon newWeapon(){
+    private Weapon newWeapon(){
         float power = Dice.weaponPower();
         int uses = Dice.usesLeft();
         return new Weapon(power, uses);
     }
 
-    public Shield newShield(){
+    private Shield newShield(){
         float protection = Dice.shieldPower();
         int uses = Dice.usesLeft();
         return new Shield(protection, uses);
     }
 
-    public float sumWeapons(){
+    private float sumWeapons(){
         float result = 0;
         for (int i=0; i< WeaponArray.size(); i++){
             result += WeaponArray.get(i).attack();
@@ -144,7 +144,7 @@ public class Player {
         return result;
     }
 
-    public float sumShields(){
+    private float sumShields(){
         float result = 0;
         for (int i=0; i< ShieldArray.size(); i++){
             result += ShieldArray.get(i).protect();
@@ -152,7 +152,7 @@ public class Player {
         return result;
     }
 
-    public float defensiveEnergy(){
+    private float defensiveEnergy(){
         return this.intelligence + this.sumShields();
     }
 
@@ -172,15 +172,15 @@ public class Player {
             return false;
         }
     }
-    public void resetHits(){
+    private void resetHits(){
         this.consecutiveHits = 0;
     }
 
-    public void gotWounded(){
+    private void gotWounded(){
         this.health --;
     }
 
-    public void incConsecutiveHits(){
+    private void incConsecutiveHits(){
         this.health++;
     }
 }

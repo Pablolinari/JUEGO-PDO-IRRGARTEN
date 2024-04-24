@@ -139,30 +139,30 @@ public class Labyrinth {
         return output;
     }
     
-    public boolean posOK(int row, int col){
+    private boolean posOK(int row, int col){
          return (0 <= row && row < nRows && 0 <= col && col < nCols);
     }
     
-    public boolean emptyPos(int row, int col){
+    private boolean emptyPos(int row, int col){
         return (this.labyrinth[row][col] == EMPTY_CHAR);
           
     }
 
-    public boolean monsterPos(int row, int col){
+    private boolean monsterPos(int row, int col){
         return (this.labyrinth[row][col]==MONSTER_CHAR);
 
     }
 
-    public boolean exitPos(int row, int col){
+    private boolean exitPos(int row, int col){
         return (this.labyrinth[row][col]==EXIT_CHAR);
     }   
 
-    public boolean combatPos(int row, int col){
+    private boolean combatPos(int row, int col){
         return (this.labyrinth[row][col]==COMBAT_CHAR);
 
     }
 
-    public boolean canStepOn(int row, int col){
+    private boolean canStepOn(int row, int col){
         if (posOK(row, col)){
             if(this.emptyPos(row, col) || this.monsterPos(row, col) || this.exitPos(row, col)){
                 return true;
@@ -173,7 +173,7 @@ public class Labyrinth {
             return false;
     }
 
-    public void updateOldPos(int row, int col){
+    private void updateOldPos(int row, int col){
         if (posOK(row, col)){
             if (this.labyrinth[row][col]==COMBAT_CHAR){
                 this.labyrinth[row][col]= MONSTER_CHAR;
@@ -182,7 +182,7 @@ public class Labyrinth {
         }
     }
 
-    public int[] dir2Pos(int row, int col, Directions direction){
+    private int[] dir2Pos(int row, int col, Directions direction){
         int [] newPos = new int[2];
         if (direction == Directions.UP){
             newPos[0]=row-1;
@@ -204,7 +204,7 @@ public class Labyrinth {
         return newPos;
     }
 
-    public int[] randomEmptyPos(){
+    private int[] randomEmptyPos(){
         int[] posicion = new int[2];
         int row = Dice.randomPos(nRows);
         int col = Dice.randomPos(nCols);

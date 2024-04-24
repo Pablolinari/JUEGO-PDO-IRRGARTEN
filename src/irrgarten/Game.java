@@ -63,7 +63,7 @@ public class Game {
         }
         return new GameState(this.labyrinth.toString(), cadplayers,cadmonsters,this.currentPlayerIndex,finished(),log);
     }
-    public void ConfigureLabyrinth(){
+    private void ConfigureLabyrinth(){
         this.labyrinth.addBlock(Orientation.VERTICAL, 2, 1,2);
         Monster cerbero = new Monster("cerbero", 4, 3);
         this.labyrinth.addMonster(1, 0, cerbero);

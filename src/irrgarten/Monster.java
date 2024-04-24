@@ -59,7 +59,7 @@ public class Monster {
         return String.format("M[%s,%f,%f]", this.name, this.intelligence, this.health, this.strength);
     }
 
-    public void gotWounded(){
+    private void gotWounded(){
         this.health--;
     }
 
