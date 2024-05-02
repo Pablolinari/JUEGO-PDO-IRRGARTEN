@@ -10,7 +10,7 @@ public class FuzzyPlayer extends Player {
     public Directions move(Directions direction, ArrayList<Directions> validMoves) {
 
         Directions preferred = super.move(direction, validMoves);
-        return Dice.nextStep(preferred, validMoves, getIntellignece());
+        return Dice.nextStep(preferred, validMoves, this.getIntellignece());
     }
     @Override
     public float attack(){
