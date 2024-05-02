@@ -1,28 +1,19 @@
 package irrgarten;
 
-public class Weapon {
-    private float power;
-    private int uses;
+public class Weapon extends CombatElement {
 
     public Weapon(float p , int u ){
-        power = p;
-        uses = u;
+        super(p, u);
     }
     public float attack(){
-        if (uses > 0) {
-            uses = uses -1;
-            return power;
-        }
-        else{
-            return 0;
-        }
+        return super.produceEffect();
     } 
 
     @Override
     public String toString(){
-        return String.format("W[%f,%d]", power,uses);
+        return "W" + super.toString();
     }
     public boolean discard(){
-        return Dice.discardElement(this.uses);
+        return super.discard();
     }
 }

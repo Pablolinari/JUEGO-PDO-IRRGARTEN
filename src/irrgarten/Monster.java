@@ -8,73 +8,28 @@ package irrgarten;
  *
  * 
  */
-public class Monster {
+public class Monster extends LabyrinthCharacter {
     private static final int INITIAL_HEALTH=5;
-    private String name;
-    private float intelligence;
-    private float health;
-    private float strength;
-    private int row;
-    private int col;
+
     
     public Monster(String nombre, float inteligencia, float fuerza){
-        name = nombre;
-        intelligence = inteligencia;
-        strength = fuerza;
-        health = INITIAL_HEALTH;
-        row = 0;
-        col = 0;
+        super(nombre, fuerza, inteligencia, INITIAL_HEALTH);
     }
-    public boolean dead(){
-        if (this.health==0){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-
+    @Override
     public float attack(){
-        return Dice.intensity(this.strength);
+        return Dice.intensity(this.getStrength());
     }
-
+    @Override
     public boolean defend(float receivedAttack){
         boolean isDead = this.dead();
         if(!isDead){
-            if(Dice.intensity(this.intelligence) < receivedAttack){
+            if(Dice.intensity(this.getIntellignece()) < receivedAttack){
                 this.gotWounded();
                 isDead = this.dead();
             }
         }
         return isDead;
     }
-
-    public void setPos(int row, int col){
-        this.row =row;
-        this.col =col;
-    }
-
-    @Override
-    public String toString(){
-        return String.format("M[%s,%f,%f]", this.name, this.intelligence, this.health, this.strength);
-    }
-
-    private void gotWounded(){
-        this.health--;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 

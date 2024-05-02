@@ -2,64 +2,38 @@ package irrgarten;
 
 import java.util.ArrayList;
 
-public class Player {
+public class Player extends LabyrinthCharacter {
     private static final int MAX_WEAPONS=2;
     private static final int MAX_SHIELDS=2;
     private static final int INITIAL_HEALTH=2;
     private static final int HITS2LOSE=2;
-    private String name;
     private char number;
-    private float intelligence;
-    private float strength;
-    private float health;
-    private int row;
-    private int col;
     private int consecutiveHits;
-
     private ArrayList<Weapon> WeaponArray = new ArrayList<Weapon>();
     private ArrayList<Shield> ShieldArray = new ArrayList<Shield>();
     
     
-    public Player(char number, float intelligence, float strength){
-        this.name = String.format("Player %c", number);
+    Player(char number, float intelligence, float strength){
+        super(String.format("Player %c", number),intelligence,strength,INITIAL_HEALTH);
         this.number = number;
-        this.intelligence = intelligence;
-        this.strength = strength;
-        this.resurrect();
-        this.row = 0;
-        this.col = 0;
+        this.consecutiveHits=0;
+
+    }
+    Player(Player other){
+        super(other);
+        this.number = other.number;
+        this.consecutiveHits=other.consecutiveHits;
+
     }
 
     public void resurrect(){
         this.WeaponArray.clear();
         this.ShieldArray.clear();
-        this.health = INITIAL_HEALTH;
+        this.setHealth(INITIAL_HEALTH); 
         this.consecutiveHits = 0;
-    }
-
-    public int getRow(){
-        return this.row;
-    }
-
-    public int getCol(){
-        return this.col;
-    }
-
-    public void setPos(int row, int col){
-        this.row = row;
-        this.col = col;
     }
     public char getNumber(){
         return this.number;
-    }
-    
-    public boolean dead(){
-        if (this.health==0){
-            return true;
-        }
-        else{
-            return false;
-        }
     }
     //Mover el jugador hacia una de las posiciones validas
     
@@ -71,11 +45,11 @@ public class Player {
         return direction;
         
     }
-    
+    @Override
     public float attack(){
-        return this.strength + this.sumWeapons();
+        return this.getStrength() + this.sumWeapons();
     }
-    
+    @Override
     public boolean defend(float receivedAttack){
       return this.manageHit(receivedAttack);  
     }
@@ -97,14 +71,13 @@ public class Player {
         }
 
         int extraHealth = Dice.healthReward();
-        this.health += extraHealth;
+        this.setHealth(extraHealth+this.getHealth());
         
     }
 
    @Override
     public String toString(){
-        return String.format("P[%s,%f,%f,%f]",this.name,this.intelligence, this.strength, this.health);
-
+        return "P" + this.toString();
     }    
 
     private void receivedWeapon(Weapon w){
@@ -136,7 +109,7 @@ public class Player {
         return new Shield(protection, uses);
     }
 
-    private float sumWeapons(){
+    protected float sumWeapons(){
         float result = 0;
         for (int i=0; i< WeaponArray.size(); i++){
             result += WeaponArray.get(i).attack();
@@ -144,7 +117,7 @@ public class Player {
         return result;
     }
 
-    private float sumShields(){
+    protected float sumShields(){
         float result = 0;
         for (int i=0; i< ShieldArray.size(); i++){
             result += ShieldArray.get(i).protect();
@@ -152,8 +125,8 @@ public class Player {
         return result;
     }
 
-    private float defensiveEnergy(){
-        return this.intelligence + this.sumShields();
+    protected float defensiveEnergy(){
+        return this.getIntellignece() + this.sumShields();
     }
 
     private boolean manageHit(float receivedAttack){
@@ -175,12 +148,7 @@ public class Player {
     private void resetHits(){
         this.consecutiveHits = 0;
     }
-
-    private void gotWounded(){
-        this.health --;
-    }
-
     private void incConsecutiveHits(){
-        this.health++;
+        this.consecutiveHits++;
     }
 }
