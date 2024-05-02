@@ -14,7 +14,7 @@ public class FuzzyPlayer extends Player {
     }
     @Override
     public float attack(){
-        return this.sumWeapons() + Dice.intensity(this.getIntellignece());
+        return this.sumWeapons() + Dice.intensity(this.getStrength());
     }
     protected float defensiveEnergy(){
         return this.sumShields() + Dice.intensity(this.getIntellignece());
