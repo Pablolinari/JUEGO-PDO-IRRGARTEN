@@ -1,4 +1,5 @@
 package irrgarten;
+import java.util.ArrayList;
 import java.util.Random;
 
  public class Dice {
@@ -57,15 +58,27 @@ import java.util.Random;
      public static int usesLeft(){
         return generator.nextInt(MAX_USES);
     }
-     public static float intensity(float competence){
+    public static float intensity(float competence){
         return competence * generator.nextFloat();
     }
-     public static boolean discardElement(int usesLeft){
+    public static boolean discardElement(int usesLeft){
         float prob = usesLeft/MAX_USES;
 
         return generator.nextFloat() <= prob;
 
     }
+
+    public static Directions nextStep(Directions preference, ArrayList<Directions> validmoves,float intelligence){
+        float prob = intelligence/MAX_INTELLIGENCE;
+        float randomProb = generator.nextFloat();
+        if(randomProb<= prob){
+            return preference;
+        }
+        else{
+            return validmoves.get(randomPos(validmoves.size()));
+        }
+    }
+
 }
 
 
