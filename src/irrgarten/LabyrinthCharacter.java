@@ -17,12 +17,10 @@ public abstract class LabyrinthCharacter {
         this.col=0;
     }
     LabyrinthCharacter(LabyrinthCharacter other){
-        this.name=other.name;
-        this.intelligence=other.intelligence;
-        this.strength=other.strength;
-        this.health=other.health;
-        this.row=other.row;
+        this(other.name,other.intelligence,other.strength,other.health);
         this.col=other.col;
+        this.row=other.row;
+
         
     }
     public boolean dead(){
