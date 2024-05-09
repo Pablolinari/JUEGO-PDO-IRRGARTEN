@@ -65,7 +65,7 @@ public class Game {
     }
     private void ConfigureLabyrinth(){
         this.labyrinth.addBlock(Orientation.VERTICAL, 2, 1,2);
-        Monster cerbero = new Monster("cerbero", 4, 3);
+        Monster cerbero = new Monster("cerbero", 10, 20);
         this.labyrinth.addMonster(1, 0, cerbero);
         this.monsters.add(cerbero);
 
@@ -116,7 +116,8 @@ public class Game {
     private void manageResurrection(){
         boolean resurrect = Dice.resurrectPlayer();
         if(resurrect){
-            this.currentPlayer.resurrect();
+           // this.currentPlayer.resurrect();
+            this.resurrectFuzzy();
             this.logResurrected();
         }
         else{
@@ -132,7 +133,11 @@ public class Game {
             this.logMonsterWon();
         }
     }
-
+    private void resurrectFuzzy(){
+        this.currentPlayer.resurrect();
+        this.currentPlayer = new FuzzyPlayer(this.currentPlayer);
+        this.players.set(this.currentPlayerIndex, this.currentPlayer);
+    }
     private void logPlayerWon(){
         this.log+="Has ganado el combate! \n";
     }

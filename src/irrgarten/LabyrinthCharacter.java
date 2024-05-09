@@ -20,8 +20,6 @@ public abstract class LabyrinthCharacter {
         this(other.name,other.intelligence,other.strength,other.health);
         this.col=other.col;
         this.row=other.row;
-
-        
     }
     public boolean dead(){
         if (this.health<=0){
@@ -56,7 +54,7 @@ public abstract class LabyrinthCharacter {
     }
     @Override
     public String toString() {
-        return String.format("%s [I:%f,S:%f,H:%f]",this.name,this.intelligence, this.strength, this.health);
+        return String.format("%s [H:%f,S:%f,I:%f,P(%d,%d)]",this.name,this.health,this.intelligence, this.strength,this.row,this.col);
     }
     protected void gotWounded(){
         this.health --;

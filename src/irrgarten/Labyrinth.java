@@ -85,6 +85,7 @@ public class Labyrinth {
         if (this.posOK(row, col) && labyrinth[row][col]==EMPTY_CHAR){
             this.labyrinth[row][col]= MONSTER_CHAR;
             this.monsters[row][col]= monster;
+            monster.setPos(row, col);
         }
     }
     
