@@ -77,7 +77,7 @@ public class Player extends LabyrinthCharacter {
 
    @Override
     public String toString(){
-        return this.toString() + " "+ShieldArray.toString() + " " +WeaponArray.toString();
+        return super.toString() + " "+ShieldArray.toString() + " " +WeaponArray.toString();
     }    
 
     private void receivedWeapon(Weapon w){
