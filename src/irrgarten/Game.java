@@ -135,8 +135,9 @@ public class Game {
     }
     private void resurrectFuzzy(){
         this.currentPlayer.resurrect();
-        this.currentPlayer = new FuzzyPlayer(this.currentPlayer);
+        this.currentPlayer = this.labyrinth.changetoFuzzy(this.currentPlayer);
         this.players.set(this.currentPlayerIndex, this.currentPlayer);
+        
     }
     private void logPlayerWon(){
         this.log+="Has ganado el combate! \n";

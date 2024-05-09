@@ -88,7 +88,11 @@ public class Labyrinth {
             monster.setPos(row, col);
         }
     }
-    
+    public FuzzyPlayer changetoFuzzy(Player player){
+        FuzzyPlayer fuzzy = new FuzzyPlayer(player);
+        this.players[player.getRow()][player.getCol()] = fuzzy;
+        return fuzzy;
+    }
     public Monster putPlayer(Directions direction, Player player){
         int[] newPos = new int[2];
         Integer oldRow = player.getRow();
@@ -119,7 +123,7 @@ public class Labyrinth {
             col += incCol;
         }
     }   
-    
+
     //Devuelve array de direcciones validas 
 
     public ArrayList<Directions> validMoves(Integer row,Integer col){
