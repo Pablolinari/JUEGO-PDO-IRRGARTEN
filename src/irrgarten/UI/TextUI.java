@@ -6,16 +6,16 @@ import irrgarten.GameState;
 import java.util.Scanner;
 
 
-public class TextUI {
+public class TextUI implements UI {
     
     private static Scanner in = new Scanner(System.in);
-    
+
     private char readChar() {
         String s = in.nextLine();     
         return s.charAt(0);
     }
     
-
+    @Override
     public Directions nextMove() {
         System.out.print("Where? ");
         
@@ -50,6 +50,7 @@ public class TextUI {
         return direction;
     }
     
+    @Override
     public void showGame(GameState gameState) {   
         System.out.print(gameState.getLabyrinthv());
         System.out.print("Turno del jugador ");
@@ -57,6 +58,7 @@ public class TextUI {
         System.out.println(gameState.getLog());
         System.out.print(gameState.getPlayers());
         System.out.println(gameState.getMonsters());
+        
         
     }
     
