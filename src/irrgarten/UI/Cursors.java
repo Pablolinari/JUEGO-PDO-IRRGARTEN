@@ -17,6 +17,7 @@ public class Cursors extends javax.swing.JDialog {
     public Cursors(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+       
     }
 
     /**
@@ -99,22 +100,26 @@ public class Cursors extends javax.swing.JDialog {
 
     private void rightbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rightbuttonActionPerformed
               // TODO add your handling code here:
-              this.move = Directions.RIGHT;
+        this.move = Directions.RIGHT;
+        this.dispose();
     }//GEN-LAST:event_rightbuttonActionPerformed
 
     private void downbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_downbuttonActionPerformed
         // TODO add your handling code here:
         this.move = Directions.DOWN;
+        this.dispose();
     }//GEN-LAST:event_downbuttonActionPerformed
 
     private void upbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upbuttonActionPerformed
         // TODO add your handling code here:
         this.move = Directions.UP;
+        this.dispose();
     }//GEN-LAST:event_upbuttonActionPerformed
 
     private void leftbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leftbuttonActionPerformed
         // TODO add your handling code here:
         this.move = Directions.LEFT;
+        this.dispose();
     }//GEN-LAST:event_leftbuttonActionPerformed
 
 
@@ -128,6 +133,7 @@ public class Cursors extends javax.swing.JDialog {
 
     public Directions getDirection(){
         this.setVisible(true);
+    
         return this.move;
     }
 
