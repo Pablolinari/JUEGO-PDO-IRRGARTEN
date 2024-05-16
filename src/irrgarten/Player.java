@@ -26,6 +26,10 @@ public class Player extends LabyrinthCharacter {
         super(other);
         this.number = other.number;
         this.consecutiveHits=other.consecutiveHits;
+        this.weaponCardDeck = other.weaponCardDeck;
+        this.shieldCardDeck = other.shieldCardDeck;
+        this.ShieldArray = other.ShieldArray;
+        this.WeaponArray = other.WeaponArray;
 
     }
 
