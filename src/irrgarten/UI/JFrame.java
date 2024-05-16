@@ -5,6 +5,7 @@
 package irrgarten.UI;
 import irrgarten.GameState;
 import irrgarten.Directions;
+import java.awt.Font;
 
 /**
  *
@@ -14,13 +15,15 @@ public class JFrame extends javax.swing.JFrame implements UI {
     private Cursors cursor;
     /**
      * Creates new form JFrame
-     */
+    **/
     public JFrame() {
         initComponents();
         this.cursor = new Cursors(this,true);
         this.cursor.setLocation(500, 500);
         setVisible(true);
         this.setLocationRelativeTo(null);
+        
+        
     }
 
     /**
@@ -33,37 +36,37 @@ public class JFrame extends javax.swing.JFrame implements UI {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        Labyrinth = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        Players = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        Monsters = new javax.swing.JTextArea();
+        turn = new javax.swing.JTextField();
+        winner = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea4 = new javax.swing.JTextArea();
+        log = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        Labyrinth.setColumns(20);
+        Labyrinth.setRows(5);
+        jScrollPane1.setViewportView(Labyrinth);
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        Players.setColumns(20);
+        Players.setRows(5);
+        jScrollPane2.setViewportView(Players);
 
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jScrollPane3.setViewportView(jTextArea3);
+        Monsters.setColumns(20);
+        Monsters.setRows(5);
+        jScrollPane3.setViewportView(Monsters);
 
-        jTextField1.setText("jTextField1");
+        turn.setText("jTextField1");
 
-        jTextField2.setText("jTextField2");
+        winner.setText("jTextField2");
 
-        jTextArea4.setColumns(20);
-        jTextArea4.setRows(5);
-        jScrollPane4.setViewportView(jTextArea4);
+        log.setColumns(20);
+        log.setRows(5);
+        jScrollPane4.setViewportView(log);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -77,9 +80,9 @@ public class JFrame extends javax.swing.JFrame implements UI {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(turn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(winner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 171, Short.MAX_VALUE))
                     .addComponent(jScrollPane3))
                 .addContainerGap())
@@ -91,9 +94,9 @@ public class JFrame extends javax.swing.JFrame implements UI {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(turn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(winner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -110,25 +113,26 @@ public class JFrame extends javax.swing.JFrame implements UI {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea Labyrinth;
+    private javax.swing.JTextArea Monsters;
+    private javax.swing.JTextArea Players;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextArea jTextArea4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextArea log;
+    private javax.swing.JTextField turn;
+    private javax.swing.JTextField winner;
     // End of variables declaration//GEN-END:variables
         @Override
     public void showGame(GameState gameState){
-       this.jTextArea1.setText(gameState.getLabyrinthv());
-       this.jTextArea2.setText(gameState.getPlayers());
-       this.jTextArea3.setText(gameState.getMonsters());
-       this.jTextArea4.setText(gameState.getLog());
-       this.jTextField1.setText("Turno de " + gameState.getCurrentPlayer());
-       this.jTextField2.setText("Ganador" +gameState.getWinner());
+        this.Labyrinth.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 12));
+       this.Labyrinth.setText(gameState.getLabyrinthv());
+       this.Players.setText(gameState.getPlayers());
+       this.Monsters.setText(gameState.getMonsters());
+       this.log.setText(gameState.getLog());
+       this.turn.setText("Turno de " + gameState.getCurrentPlayer());
+       this.winner.setText("Ganador" +gameState.getWinner());
        this.repaint();
     }
     @Override

@@ -65,9 +65,12 @@ public class Game {
     }
     private void ConfigureLabyrinth(){
         this.labyrinth.addBlock(Orientation.VERTICAL, 2, 1,2);
-        Monster cerbero = new Monster("cerbero", 10, 20);
-        this.labyrinth.addMonster(1, 0, cerbero);
-        this.monsters.add(cerbero);
+        Monster m1 = new Monster("m1", 1, 1);
+        Monster m2 = new Monster("m2", 10, 10);
+        this.labyrinth.addMonster(0, 1, m1);
+        this.labyrinth.addMonster(3, 3, m2);
+        this.monsters.add(m1);
+        this.monsters.add(m2);
 
     }
     private void nextPlayer(){
