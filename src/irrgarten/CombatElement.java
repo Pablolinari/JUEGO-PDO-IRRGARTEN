@@ -20,6 +20,7 @@ abstract class CombatElement {
     public boolean discard(){
         return Dice.discardElement(this.uses);
     }
+    @Override
     public  String toString(){
         return String.format("[%f,%d]",effect,uses);
     }

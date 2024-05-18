@@ -54,7 +54,7 @@ public abstract class LabyrinthCharacter {
     }
     @Override
     public String toString() {
-        return String.format("%s [H:%f,S:%f,I:%f,P(%d,%d)]",this.name,this.health,this.intelligence, this.strength,this.row,this.col);
+        return String.format("%s [H:%f,I:%f,S:%f,P(%d,%d)]",this.name,this.health,this.intelligence, this.strength,this.row,this.col);
     }
     protected void gotWounded(){
         this.health --;
