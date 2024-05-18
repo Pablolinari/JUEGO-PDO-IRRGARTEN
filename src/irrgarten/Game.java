@@ -59,7 +59,7 @@ public class Game {
             cadplayers+=players.get(i).toString() + "\n";
         }
         for(Integer i = 0; i< this.monsters.size(); i++){
-            cadmonsters+=monsters.get(i).toString();
+            cadmonsters+=monsters.get(i).toString() + "\n";
         }
         return new GameState(this.labyrinth.toString(), cadplayers,cadmonsters,this.currentPlayerIndex,finished(),log);
     }
@@ -146,7 +146,7 @@ public class Game {
         this.log+="Has ganado el combate! \n";
     }
     private void logMonsterWon(){
-        this.log+="El monstruo ha ganadpo el combate! \n";
+        this.log+="El monstruo ha ganado el combate! \n";
     }
     private void logResurrected(){
         this.log+="Acabas de resucitar\n";
